@@ -1,5 +1,6 @@
 package com.shriram.microservices.service.impl;
 
+import com.shriram.microservices.model.customer.Customer;
 import com.shriram.microservices.model.location.Location;
 import com.shriram.microservices.model.taxi.Taxi;
 import com.shriram.microservices.service.TaxiService;
@@ -26,6 +27,18 @@ public class TaxiServiceImpl implements TaxiService {
         taxi.inTransit(false);
 
         return taxi;
+    }
+
+    @Override
+    public Customer bookTaxi(Taxi taxi, Customer customer) {
+
+        //though has no significance till an entry is not made to the DB
+        taxi.inTransit(true);
+
+        customer.taxi(taxi);
+
+        //TODO Should make an insert to the customer and taxi table, citing customer taxi linking
+        return customer;
     }
 
     @Override

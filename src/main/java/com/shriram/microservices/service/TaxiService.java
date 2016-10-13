@@ -1,5 +1,6 @@
 package com.shriram.microservices.service;
 
+import com.shriram.microservices.model.customer.Customer;
 import com.shriram.microservices.model.location.Location;
 import com.shriram.microservices.model.taxi.Taxi;
 
@@ -15,6 +16,15 @@ public interface TaxiService {
      * @return Taxi
      */
     Taxi searchTaxi(Location location);
+
+    /**
+     * Books the given taxi for the customer
+     * <p>
+     * This method books the taxi for the customer
+     *
+     * @return the Customer Object
+     */
+    Customer bookTaxi(Taxi taxi,Customer customer);
 
     /**
      * Retrieves a list of nearby Taxis
