@@ -51,13 +51,13 @@ public class TaxiServiceImpl implements TaxiService {
         Taxi taxi1 = new Taxi("1");
         taxi1.location(new Location(Double.parseDouble("23.2323434"), Double.parseDouble("24.232323")));
 
-        Taxi taxi2 = new Taxi("1");
+        Taxi taxi2 = new Taxi("2");
         taxi2.location(new Location(Double.parseDouble("23.2323434"), Double.parseDouble("24.232323")));
 
-        Taxi taxi3 = new Taxi("1");
+        Taxi taxi3 = new Taxi("3");
         taxi3.location(new Location(Double.parseDouble("23.2323434"), Double.parseDouble("24.232323")));
 
-        Taxi taxi4 = new Taxi("1");
+        Taxi taxi4 = new Taxi("4");
         taxi4.location(new Location(Double.parseDouble("23.2323434"), Double.parseDouble("24.232323")));
 
         taxis.add(taxi1);
