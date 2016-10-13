@@ -8,21 +8,20 @@ import java.util.List;
 public interface TaxiService {
 
     /**
-     * Retrieves particular Taxi details
+     * Retrieves the closest Taxi details
      * <p>
-     * This method retrieves a particular Taxi's details given its ID
+     * This method retrieves the closes Taxi's details given a location
      *
      * @return Taxi
      */
-    Taxi searchTaxi(String id);
+    Taxi searchTaxi(Location location);
 
     /**
      * Retrieves a list of nearby Taxis
      * <p>
      * This method retrieves a list of nearby taxis given a location
      *
-     * @param location
-     *            -latitude and longitude supplied
+     * @param location -latitude and longitude supplied
      * @return List of Taxis
      */
     List<Taxi> searchTaxis(Location location);

@@ -18,7 +18,7 @@ public class TaxiServiceImpl implements TaxiService {
     Logger logger = Logger.getLogger(TaxiServiceImpl.class);
 
     @Override
-    public Taxi searchTaxi(String id) {
+    public Taxi searchTaxi(Location location) {
         return null;
     }
 
