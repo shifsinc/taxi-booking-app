@@ -21,7 +21,7 @@ public class TripServiceImpl implements TripService {
     Logger logger = Logger.getLogger(TripServiceImpl.class);
 
     @Override
-    public Trip startTrip(Customer customer, Taxi taxi, Location startLocation, DateTime startTime) {
+    public Trip startTrip(Customer customer, Taxi taxi, Location startLocation, String startTime) {
         return null;
     }
 

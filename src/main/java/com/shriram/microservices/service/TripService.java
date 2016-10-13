@@ -15,7 +15,7 @@ public interface TripService {
      *
      * @return Trip
      */
-    Trip startTrip(Customer customer, Taxi taxi, Location startLocation, DateTime startTime);
+    Trip startTrip(Customer customer, Taxi taxi, Location startLocation, String startTime);
 
     /**
      * Ends a trip
