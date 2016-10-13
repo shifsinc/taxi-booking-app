@@ -17,10 +17,14 @@ public class Taxi {
     private double costPerMinute;
     private double costPerKM;
 
+    //set to false initially
+    private boolean inTransit;
+
     public Taxi(String id) {
         this.id = id;
         this.costPerMinute = 1;
         this.costPerKM = 2;
+        this.inTransit = false;
     }
 
     //no setter for id, as the id defines it
@@ -42,6 +46,10 @@ public class Taxi {
 
     public double costPerKM() {
         return 2;
+    }
+
+    public void inTransit(boolean inTransit) {
+        this.inTransit = inTransit;
     }
 
     @Override
