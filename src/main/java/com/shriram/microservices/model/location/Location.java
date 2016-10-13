@@ -14,20 +14,13 @@ public class Location {
         this.longitude = longitude;
     }
 
-    public double getLatitude() {
+    //no setters as change in latitude or longitude would result in a new location
+    public double latitude() {
         return latitude;
     }
 
-    public void setLatitude(double latitude) {
-        this.latitude = latitude;
-    }
-
-    public double getLongitude() {
+    public double longitude() {
         return longitude;
-    }
-
-    public void setLongitude(double longitude) {
-        this.longitude = longitude;
     }
 
     @Override
