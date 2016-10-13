@@ -51,7 +51,7 @@ public class TaxiController {
                               @RequestParam("longitude") String longitude, HttpServletRequest request,
                               HttpServletResponse response) {
         if (StringUtils.isEmpty(latitude) || StringUtils.isEmpty(longitude)) {
-            return ResponseUtil.unauthorizedMessage(response, "missing latitude/longitude");
+            return ResponseUtil.badRequest(response, "missing latitude/longitude");
         }
 
         return null;
@@ -77,7 +77,7 @@ public class TaxiController {
                                         HttpServletResponse response) {
         Map<String, Object> responseContent = new HashMap<String, Object>();
         if (StringUtils.isEmpty(customerID) || StringUtils.isEmpty(latitude) || StringUtils.isEmpty(longitude)) {
-            return ResponseUtil.unauthorizedMessage(response, "missing customer id/latitude/longitude");
+            return ResponseUtil.badRequest(response, "missing customer id/latitude/longitude");
         }
         responseContent.put("message", "booked");
         responseContent.put("taxi", null);
