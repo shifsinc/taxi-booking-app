@@ -36,7 +36,11 @@ public class BillingServiceImpl implements BillingService {
     private double calculateBillAmount(Trip trip) {
         double distanceTravelled = trip.startLocation().distanceTo(trip.endLocation());
         int timeTravelled = timeTravelled(trip.startTime());
-        return trip.taxi().costPerKM() * distanceTravelled + trip.taxi().costPerMinute() * timeTravelled;
+        double totalAmount = trip.taxi().costPerKM() * distanceTravelled + trip.taxi().costPerMinute() * timeTravelled;
+        if (trip.taxi().isPink()) {
+            totalAmount += 5;
+        }
+        return totalAmount;
     }
 
     //calculates time travelled in rounded off minutes

@@ -89,7 +89,7 @@ public class TaxiController {
     @RequestMapping(method = RequestMethod.POST, value = "/book")
     @ResponseBody
     public Map<String, Object> bookTaxi(@RequestParam("customerID") String customerID, @RequestParam("latitude") String latitude,
-                                        @RequestParam("longitude") String longitude, HttpServletRequest request,
+                                        @RequestParam("longitude") String longitude, @RequestParam("isPink") String isPink, HttpServletRequest request,
                                         HttpServletResponse response) {
         Map<String, Object> responseContent = new HashMap<>();
         if (StringUtils.isEmpty(customerID) || StringUtils.isEmpty(latitude) || StringUtils.isEmpty(longitude)) {
@@ -98,7 +98,7 @@ public class TaxiController {
 
         Location location = new Location(Double.parseDouble(latitude), Double.parseDouble(longitude));
 
-        Taxi retrievedTaxi = taxiService.searchTaxi(location);
+        Taxi retrievedTaxi = taxiService.searchTaxi(location, Boolean.getBoolean(isPink));
         Customer retrievedCustomer = taxiService.bookTaxi(retrievedTaxi, new Customer(customerID));
 
         //create value object to sent in the response

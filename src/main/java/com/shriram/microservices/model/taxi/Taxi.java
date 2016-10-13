@@ -20,6 +20,8 @@ public class Taxi {
     //set to false initially
     private boolean inTransit;
 
+    private boolean isPink;
+
     public Taxi(String id) {
         this.id = id;
         this.costPerMinute = 1;
@@ -50,6 +52,14 @@ public class Taxi {
 
     public void inTransit(boolean inTransit) {
         this.inTransit = inTransit;
+    }
+
+    public boolean isPink() {
+        return isPink;
+    }
+
+    public void pink(boolean pink) {
+        isPink = pink;
     }
 
     @Override

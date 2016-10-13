@@ -19,11 +19,13 @@ public class TaxiServiceImpl implements TaxiService {
     Logger logger = Logger.getLogger(TaxiServiceImpl.class);
 
     @Override
-    public Taxi searchTaxi(Location location) {
+    public Taxi searchTaxi(Location location, boolean isPink) {
 
         //hardcoding taxi for now
         Taxi taxi = new Taxi("1");
         taxi.location(new Location(Double.parseDouble("23.2323434"), Double.parseDouble("24.232323")));
+
+        taxi.pink(isPink);
 
         return taxi;
     }

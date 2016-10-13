@@ -11,11 +11,11 @@ public interface TaxiService {
     /**
      * Retrieves the closest Taxi details
      * <p>
-     * This method retrieves the closes Taxi's details given a location
+     * This method retrieves the closes Taxi's details given a location and whether the car request is pink
      *
      * @return Taxi
      */
-    Taxi searchTaxi(Location location);
+    Taxi searchTaxi(Location location, boolean isPink);
 
     /**
      * Books the given taxi for the customer
