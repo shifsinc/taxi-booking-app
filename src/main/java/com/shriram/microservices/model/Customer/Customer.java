@@ -1,4 +1,4 @@
-package com.shriram.microservices.model.Customer;
+package com.shriram.microservices.model.customer;
 
 import com.shriram.microservices.model.location.Location;
 import com.shriram.microservices.model.taxi.Taxi;
