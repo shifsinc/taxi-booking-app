@@ -25,7 +25,7 @@ public class Trip {
 
     private Bill bill;
 
-    public DateTime getStartTime() {
+    public DateTime startTime() {
         return startTime;
     }
 
