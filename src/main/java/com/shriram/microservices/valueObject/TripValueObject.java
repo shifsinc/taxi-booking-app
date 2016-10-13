@@ -1,5 +1,7 @@
 package com.shriram.microservices.valueObject;
 
+import com.shriram.microservices.model.trip.Trip;
+
 /**
  * Created by TSShriram on 13/10/2016.
  * TripValueObject for request and response for the Trip
@@ -16,6 +18,13 @@ public class TripValueObject {
         this.customer = customer;
         this.taxi = taxi;
         this.startLocation = startLocation;
+    }
+
+    public TripValueObject(Trip trip) {
+        this.id = trip.id();
+        this.customer = new CustomerValueObject(trip.customer());
+        this.taxi = new TaxiValueObject(trip.taxi());
+        this.startLocation = new LocationValueObject(trip.startLocation());
     }
 
     public String getId() {

@@ -36,9 +36,9 @@ public class TaxiValueObject {
         this.location = location;
     }
 
-    public Taxi getTaxi(TaxiValueObject taxiValueObject) {
-        Taxi taxi = new Taxi(taxiValueObject.getId());
-        taxi.location(taxiValueObject.getLocation().getLocation());
+    public Taxi getTaxiObject() {
+        Taxi taxi = new Taxi(this.id);
+        taxi.location(this.location.getLocationObject());
         return taxi;
     }
 

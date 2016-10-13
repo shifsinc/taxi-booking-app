@@ -36,7 +36,7 @@ public class LocationValueObject {
         this.longitude = longitude;
     }
 
-    public Location getLocation() {
+    public Location getLocationObject() {
         return new Location(Double.parseDouble(this.latitude), Double.parseDouble(this.longitude));
     }
 
