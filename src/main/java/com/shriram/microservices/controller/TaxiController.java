@@ -1,7 +1,11 @@
 package com.shriram.microservices.controller;
 
+import com.shriram.microservices.model.location.Location;
+import com.shriram.microservices.model.taxi.Taxi;
 import com.shriram.microservices.service.TaxiService;
 import com.shriram.microservices.util.ResponseUtil;
+import com.shriram.microservices.valueObject.LocationValueObject;
+import com.shriram.microservices.valueObject.TaxiValueObject;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -54,7 +59,17 @@ public class TaxiController {
             return ResponseUtil.badRequest(response, "missing latitude/longitude");
         }
 
-        return null;
+        Location location = new Location(Double.parseDouble(latitude), Double.parseDouble(longitude));
+        List<Taxi> retrieveTaxis = taxiService.searchTaxis(location);
+        List<TaxiValueObject> taxis = new ArrayList<>();
+
+        for (Taxi taxi : retrieveTaxis) {
+            LocationValueObject locationValueObject = new LocationValueObject(Double.toString(taxi.location().latitude()), Double.toString(taxi.location().longitude()));
+            TaxiValueObject taxiValueObject = new TaxiValueObject(taxi.id(), locationValueObject);
+            taxis.add(taxiValueObject);
+        }
+
+        return taxis;
     }
 
     /**
