@@ -91,7 +91,7 @@ public class TaxiController {
     public Map<String, Object> bookTaxi(@RequestParam("customerID") String customerID, @RequestParam("latitude") String latitude,
                                         @RequestParam("longitude") String longitude, HttpServletRequest request,
                                         HttpServletResponse response) {
-        Map<String, Object> responseContent = new HashMap<String, Object>();
+        Map<String, Object> responseContent = new HashMap<>();
         if (StringUtils.isEmpty(customerID) || StringUtils.isEmpty(latitude) || StringUtils.isEmpty(longitude)) {
             return ResponseUtil.badRequest(response, "missing customer id/latitude/longitude");
         }
