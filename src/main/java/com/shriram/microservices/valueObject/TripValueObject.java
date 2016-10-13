@@ -6,14 +6,24 @@ package com.shriram.microservices.valueObject;
  */
 public class TripValueObject {
 
+    private String id;
     private CustomerValueObject customer;
     private TaxiValueObject taxi;
     private LocationValueObject startLocation;
 
-    public TripValueObject(CustomerValueObject customer, TaxiValueObject taxi, LocationValueObject startLocation) {
+    public TripValueObject(String id, CustomerValueObject customer, TaxiValueObject taxi, LocationValueObject startLocation) {
+        this.id = id;
         this.customer = customer;
         this.taxi = taxi;
         this.startLocation = startLocation;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public CustomerValueObject getCustomer() {
@@ -39,4 +49,5 @@ public class TripValueObject {
     public void setStartLocation(LocationValueObject startLocation) {
         this.startLocation = startLocation;
     }
+
 }
