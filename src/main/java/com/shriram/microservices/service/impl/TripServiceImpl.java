@@ -31,6 +31,7 @@ public class TripServiceImpl implements TripService {
     @Override
     public Trip startTrip(Customer customer, Taxi taxi, Location startLocation, String startTime) {
 
+        //FIXME how to streamline id - keyHolder
         Trip trip = new Trip(customer, taxi, startLocation, startTime);
         return trip;
     }
