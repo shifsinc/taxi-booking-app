@@ -4,6 +4,7 @@ import com.shriram.microservices.model.bill.Bill;
 import com.shriram.microservices.model.customer.Customer;
 import com.shriram.microservices.model.location.Location;
 import com.shriram.microservices.model.taxi.Taxi;
+import org.joda.time.DateTime;
 
 /**
  * Created by TSShriram on 13/10/2016.
@@ -19,12 +20,28 @@ public class Trip {
     private Location startLocation;
     private Location endLocation;
 
+    private DateTime startTime;
+    private DateTime endTime;
+
     private Bill bill;
 
-    public Trip(Customer customer, Taxi taxi, Location startLocation) {
+    public DateTime getStartTime() {
+        return startTime;
+    }
+
+    public DateTime endTime() {
+        return endTime;
+    }
+
+    public void endTime(DateTime endTime) {
+        this.endTime = endTime;
+    }
+
+    public Trip(Customer customer, Taxi taxi, Location startLocation, DateTime startTime) {
         this.customer = customer;
         this.taxi = taxi;
         this.startLocation = startLocation;
+        this.startTime = startTime;
     }
 
     public Customer customer() {
