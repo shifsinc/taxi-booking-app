@@ -60,7 +60,7 @@ public class CustomerValueObject {
 
     public Customer getCustomerObject() {
         Customer customer = new Customer(this.id);
-        customer.location(this.location.getLocation());
+        customer.location(this.location.getLocationObject());
         return customer;
     }
 
