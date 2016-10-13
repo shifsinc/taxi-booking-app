@@ -5,8 +5,6 @@ import com.shriram.microservices.model.location.Location;
 import com.shriram.microservices.model.taxi.Taxi;
 import com.shriram.microservices.model.trip.Trip;
 
-import java.util.List;
-
 public interface TripService {
 
     /**
@@ -16,7 +14,7 @@ public interface TripService {
      *
      * @return Trip
      */
-    Trip startTrip(Customer customer, Taxi taxi);
+    Trip startTrip(Customer customer, Taxi taxi, Location startLocation);
 
     /**
      * Ends a trip
