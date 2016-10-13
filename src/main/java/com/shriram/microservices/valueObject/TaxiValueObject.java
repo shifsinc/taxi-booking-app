@@ -1,5 +1,7 @@
 package com.shriram.microservices.valueObject;
 
+import com.shriram.microservices.model.taxi.Taxi;
+
 /**
  * Created by TSShriram on 13/10/2016.
  */
@@ -11,6 +13,11 @@ public class TaxiValueObject {
     public TaxiValueObject(String id, LocationValueObject location) {
         this.id = id;
         this.location = location;
+    }
+
+    public TaxiValueObject(Taxi taxi) {
+        this.id = taxi.id();
+        this.location = new LocationValueObject(taxi.location());
     }
 
     public String getId() {
@@ -27,6 +34,12 @@ public class TaxiValueObject {
 
     public void setLocation(LocationValueObject location) {
         this.location = location;
+    }
+
+    public Taxi getTaxi(TaxiValueObject taxiValueObject) {
+        Taxi taxi = new Taxi(taxiValueObject.getId());
+        taxi.location(taxiValueObject.getLocation().getLocation());
+        return taxi;
     }
 
 }

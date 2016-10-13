@@ -1,5 +1,7 @@
 package com.shriram.microservices.valueObject;
 
+import com.shriram.microservices.model.customer.Customer;
+
 /**
  * Created by TSShriram on 13/10/2016.
  */
@@ -15,6 +17,13 @@ public class CustomerValueObject {
         this.name = name;
         this.taxi = taxi;
         this.location = location;
+    }
+
+    public CustomerValueObject(Customer customer) {
+        this.id = customer.id();
+        this.name = customer.name();
+        this.taxi = new TaxiValueObject(customer.taxi());
+        this.location = new LocationValueObject(customer.location());
     }
 
     public String getId() {
@@ -47,6 +56,12 @@ public class CustomerValueObject {
 
     public void setLocation(LocationValueObject location) {
         this.location = location;
+    }
+
+    public Customer getCustomer() {
+        Customer customer = new Customer(this.id);
+        customer.location(this.location.getLocation());
+        return customer;
     }
 
 }
