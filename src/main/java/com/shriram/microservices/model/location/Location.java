@@ -46,4 +46,10 @@ public class Location {
         return result;
     }
 
+    public double distanceTo(Location location) {
+
+        //TODO - Implement Subtraction of lot/long
+        return 25;
+    }
+
 }
