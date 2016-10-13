@@ -1,5 +1,6 @@
 package com.shriram.microservices.controller;
 
+import com.shriram.microservices.model.customer.Customer;
 import com.shriram.microservices.model.location.Location;
 import com.shriram.microservices.model.taxi.Taxi;
 import com.shriram.microservices.service.TaxiService;
@@ -98,13 +99,14 @@ public class TaxiController {
         Location location = new Location(Double.parseDouble(latitude), Double.parseDouble(longitude));
 
         Taxi retrievedTaxi = taxiService.searchTaxi(location);
+        Customer retrievedCustomer = taxiService.bookTaxi(retrievedTaxi, new Customer(customerID));
 
         //create value object to sent in the response
         LocationValueObject locationValueObject = new LocationValueObject(location);
         TaxiValueObject taxi = new TaxiValueObject(retrievedTaxi.id(), locationValueObject);
 
         responseContent.put("message", "booked");
-        responseContent.put("taxi", taxi);
+        responseContent.put("taxi", retrievedCustomer.taxi());
         return responseContent;
     }
 
