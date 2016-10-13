@@ -4,13 +4,14 @@ import com.shriram.microservices.model.bill.Bill;
 import com.shriram.microservices.model.customer.Customer;
 import com.shriram.microservices.model.location.Location;
 import com.shriram.microservices.model.taxi.Taxi;
-import org.joda.time.DateTime;
 
 /**
  * Created by TSShriram on 13/10/2016.
  * Represents a trip which is uniquely identified by a customer and a bill
  */
 public class Trip {
+
+    String id;
 
     private Customer customer;
 
@@ -20,24 +21,32 @@ public class Trip {
     private Location startLocation;
     private Location endLocation;
 
-    private DateTime startTime;
-    private DateTime endTime;
+    private String startTime;
+    private String endTime;
 
     private Bill bill;
 
-    public DateTime startTime() {
+    public String id() {
+        return id;
+    }
+
+    public String startTime() {
         return startTime;
     }
 
-    public DateTime endTime() {
+    public String endTime() {
         return endTime;
     }
 
-    public void endTime(DateTime endTime) {
+    public void endTime(String endTime) {
         this.endTime = endTime;
     }
 
-    public Trip(Customer customer, Taxi taxi, Location startLocation, DateTime startTime) {
+    public Trip(String id) {
+        this.id = id;
+    }
+
+    public Trip(Customer customer, Taxi taxi, Location startLocation, String startTime) {
         this.customer = customer;
         this.taxi = taxi;
         this.startLocation = startLocation;
