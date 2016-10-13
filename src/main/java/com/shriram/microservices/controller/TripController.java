@@ -1,6 +1,11 @@
 package com.shriram.microservices.controller;
 
+import com.shriram.microservices.model.customer.Customer;
+import com.shriram.microservices.model.location.Location;
+import com.shriram.microservices.model.taxi.Taxi;
+import com.shriram.microservices.model.trip.Trip;
 import com.shriram.microservices.service.TripService;
+import com.shriram.microservices.util.DateTimeUtil;
 import com.shriram.microservices.util.ResponseUtil;
 import com.shriram.microservices.valueObject.TripValueObject;
 import org.apache.commons.lang3.StringUtils;
@@ -11,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Properties;
 
 /**
  * Taxi Controller for search and booking a cab
@@ -27,6 +33,12 @@ public class TripController {
     @Autowired
     @Qualifier("tripService")
     private TripService tripService;
+
+    @Autowired
+    @Qualifier("domainProperties")
+    private Properties domainProperties;
+
+    private final static String TIMESTAMP_FORMAT = "datetime.token.format";
 
     Logger logger = Logger.getLogger(TripController.class);
 
@@ -61,7 +73,14 @@ public class TripController {
             return ResponseUtil.badRequest(response, "missing taxi details");
         }
 
-        return tripValueObject;
+
+        Customer customer = tripValueObject.getCustomer().getCustomerObject();
+        Taxi taxi = tripValueObject.getTaxi().getTaxiObject();
+        Location startLocation = tripValueObject.getStartLocation().getLocationObject();
+
+        Trip retrievedTrip = tripService.startTrip(customer, taxi, startLocation, DateTimeUtil.getFormattedCurrentTime(domainProperties.getProperty(TIMESTAMP_FORMAT)));
+
+        return new TripValueObject(retrievedTrip);
     }
 
     /**
@@ -86,7 +105,9 @@ public class TripController {
             return ResponseUtil.badRequest(response, "missing latitude/longitude");
         }
 
-        return null;
+        Trip retrievedTrip = tripService.endTrip(new Trip(id));
+
+        return new TripValueObject(retrievedTrip);
     }
 
 }
