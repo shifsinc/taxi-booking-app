@@ -24,7 +24,6 @@ public class TaxiServiceImpl implements TaxiService {
         //hardcoding taxi for now
         Taxi taxi = new Taxi("1");
         taxi.location(new Location(Double.parseDouble("23.2323434"), Double.parseDouble("24.232323")));
-        taxi.inTransit(false);
 
         return taxi;
     }
@@ -49,19 +48,15 @@ public class TaxiServiceImpl implements TaxiService {
         //hardcoding taxis
         Taxi taxi1 = new Taxi("1");
         taxi1.location(new Location(Double.parseDouble("23.2323434"), Double.parseDouble("24.232323")));
-        taxi1.inTransit(false);
 
         Taxi taxi2 = new Taxi("1");
         taxi2.location(new Location(Double.parseDouble("23.2323434"), Double.parseDouble("24.232323")));
-        taxi2.inTransit(false);
 
         Taxi taxi3 = new Taxi("1");
         taxi3.location(new Location(Double.parseDouble("23.2323434"), Double.parseDouble("24.232323")));
-        taxi3.inTransit(false);
 
         Taxi taxi4 = new Taxi("1");
         taxi4.location(new Location(Double.parseDouble("23.2323434"), Double.parseDouble("24.232323")));
-        taxi4.inTransit(false);
 
         taxis.add(taxi1);
         taxis.add(taxi2);
