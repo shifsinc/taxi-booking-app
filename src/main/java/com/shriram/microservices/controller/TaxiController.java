@@ -64,7 +64,7 @@ public class TaxiController {
         List<TaxiValueObject> taxis = new ArrayList<>();
 
         for (Taxi taxi : retrieveTaxis) {
-            LocationValueObject locationValueObject = new LocationValueObject(Double.toString(taxi.location().latitude()), Double.toString(taxi.location().longitude()));
+            LocationValueObject locationValueObject = new LocationValueObject(taxi.location());
             TaxiValueObject taxiValueObject = new TaxiValueObject(taxi.id(), locationValueObject);
             taxis.add(taxiValueObject);
         }
@@ -95,10 +95,12 @@ public class TaxiController {
             return ResponseUtil.badRequest(response, "missing customer id/latitude/longitude");
         }
 
-        Taxi retrievedTaxi = taxiService.searchTaxi(new Location(Double.parseDouble(latitude), Double.parseDouble(longitude)));
+        Location location = new Location(Double.parseDouble(latitude), Double.parseDouble(longitude));
+
+        Taxi retrievedTaxi = taxiService.searchTaxi(location);
 
         //create value object to sent in the response
-        LocationValueObject locationValueObject = new LocationValueObject(Double.toString(retrievedTaxi.location().latitude()), Double.toString(retrievedTaxi.location().longitude()));
+        LocationValueObject locationValueObject = new LocationValueObject(location);
         TaxiValueObject taxi = new TaxiValueObject(retrievedTaxi.id(), locationValueObject);
 
         responseContent.put("message", "booked");
