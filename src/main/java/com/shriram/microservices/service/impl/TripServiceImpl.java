@@ -28,12 +28,6 @@ public class TripServiceImpl implements TripService {
     @Qualifier("billingService")
     private BillingService billingService;
 
-    @Autowired
-    @Qualifier("domainProperties")
-    private Properties domainProperties;
-
-    private final static String TIMESTAMP_FORMAT = "datetime.token.format";
-
     @Override
     public Trip startTrip(Customer customer, Taxi taxi, Location startLocation, String startTime) {
 
