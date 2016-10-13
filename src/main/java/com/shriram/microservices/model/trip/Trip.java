@@ -53,6 +53,22 @@ public class Trip {
         this.startTime = startTime;
     }
 
+    public void customer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public void startLocation(Location startLocation) {
+        this.startLocation = startLocation;
+    }
+
+    public void taxi(Taxi taxi) {
+        this.taxi = taxi;
+    }
+
+    public void startTime(String startTime) {
+        this.startTime = startTime;
+    }
+
     public Customer customer() {
         return customer;
     }
