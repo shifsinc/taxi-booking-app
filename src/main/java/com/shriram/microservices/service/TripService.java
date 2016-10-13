@@ -4,6 +4,7 @@ import com.shriram.microservices.model.customer.Customer;
 import com.shriram.microservices.model.location.Location;
 import com.shriram.microservices.model.taxi.Taxi;
 import com.shriram.microservices.model.trip.Trip;
+import org.joda.time.DateTime;
 
 public interface TripService {
 
@@ -14,7 +15,7 @@ public interface TripService {
      *
      * @return Trip
      */
-    Trip startTrip(Customer customer, Taxi taxi, Location startLocation);
+    Trip startTrip(Customer customer, Taxi taxi, Location startLocation, DateTime startTime);
 
     /**
      * Ends a trip

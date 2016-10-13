@@ -7,6 +7,7 @@ import com.shriram.microservices.model.trip.Trip;
 import com.shriram.microservices.service.TaxiService;
 import com.shriram.microservices.service.TripService;
 import org.apache.log4j.Logger;
+import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +21,7 @@ public class TripServiceImpl implements TripService {
     Logger logger = Logger.getLogger(TripServiceImpl.class);
 
     @Override
-    public Trip startTrip(Customer customer, Taxi taxi, Location startLocation) {
+    public Trip startTrip(Customer customer, Taxi taxi, Location startLocation, DateTime startTime) {
         return null;
     }
 
