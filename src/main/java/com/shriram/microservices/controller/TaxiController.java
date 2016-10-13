@@ -94,8 +94,15 @@ public class TaxiController {
         if (StringUtils.isEmpty(customerID) || StringUtils.isEmpty(latitude) || StringUtils.isEmpty(longitude)) {
             return ResponseUtil.badRequest(response, "missing customer id/latitude/longitude");
         }
+
+        Taxi retrievedTaxi = taxiService.searchTaxi(new Location(Double.parseDouble(latitude), Double.parseDouble(longitude)));
+
+        //create value object to sent in the response
+        LocationValueObject locationValueObject = new LocationValueObject(Double.toString(retrievedTaxi.location().latitude()), Double.toString(retrievedTaxi.location().longitude()));
+        TaxiValueObject taxi = new TaxiValueObject(retrievedTaxi.id(), locationValueObject);
+
         responseContent.put("message", "booked");
-        responseContent.put("taxi", null);
+        responseContent.put("taxi", taxi);
         return responseContent;
     }
 
