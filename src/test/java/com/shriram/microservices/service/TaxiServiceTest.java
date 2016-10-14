@@ -1,8 +1,6 @@
 package com.shriram.microservices.service;
 
 import com.shriram.microservices.config.MicroservicesServletTest;
-import com.shriram.microservices.dao.AuthenticationDao;
-import com.shriram.microservices.model.authentication.Credentials;
 import com.shriram.microservices.model.customer.Customer;
 import com.shriram.microservices.model.location.Location;
 import com.shriram.microservices.model.taxi.Taxi;
@@ -13,15 +11,11 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
-
-import static org.mockito.Mockito.when;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration

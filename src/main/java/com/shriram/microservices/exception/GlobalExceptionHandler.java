@@ -1,8 +1,5 @@
 package com.shriram.microservices.exception;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.log4j.Logger;
@@ -17,6 +14,9 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
@@ -28,12 +28,9 @@ public class GlobalExceptionHandler {
      * This method handles the MissingServletRequestParameterException when any query parameter is missing and throws 400 error with
      * {message: "Reason for exception"}
      *
-     * @param exception
-     *            - The concerned exception
-     * @param request
-     *            - HttpServletRequest
-     * @param response
-     *            - HttpServletResponse
+     * @param exception - The concerned exception
+     * @param request   - HttpServletRequest
+     * @param response  - HttpServletResponse
      * @return error message
      */
     @ExceptionHandler(MissingServletRequestParameterException.class)

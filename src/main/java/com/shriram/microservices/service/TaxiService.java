@@ -24,7 +24,7 @@ public interface TaxiService {
      *
      * @return the Customer Object
      */
-    Customer bookTaxi(Taxi taxi,Customer customer);
+    Customer bookTaxi(Taxi taxi, Customer customer);
 
     /**
      * Retrieves a list of nearby Taxis

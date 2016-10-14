@@ -68,5 +68,5 @@ public class TripServiceTest extends TestCase {
     public void endTripTest() {
         assertEquals(tripService.endTrip(endTrip).customer().id(), "1");
     }
-    
+
 }

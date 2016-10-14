@@ -1,12 +1,11 @@
 package com.shriram.microservices.util;
 
+import org.apache.commons.lang3.StringUtils;
+
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.servlet.http.HttpServletResponse;
-
-import org.apache.commons.lang3.StringUtils;
 
 /**
  * Response Utility for sending HTTP response for multiple scenarios

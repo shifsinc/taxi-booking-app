@@ -1,13 +1,13 @@
 package com.shriram.microservices.util;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-
 import org.apache.log4j.Logger;
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
 import org.joda.time.format.DateTimeFormat;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class DateTimeUtil {
 
@@ -44,8 +44,7 @@ public class DateTimeUtil {
     /**
      * Returns the current date converted to the time zone specified by {@link DateTimeUtil#LOCAL_TIMEZONE}
      *
-     * @param date
-     *            in ISO Format
+     * @param date in ISO Format
      * @return Date
      */
     public static Date convertToTimeZone(String date, String format, String timeZone) {
@@ -61,10 +60,8 @@ public class DateTimeUtil {
     /**
      * Returns the String formatted when date and format specified are provided
      *
-     * @param date
-     *            - Date
-     * @param format
-     *            - Time Zone format to be converted to
+     * @param date   - Date
+     * @param format - Time Zone format to be converted to
      * @return Date
      */
     public static String format(Date date, String pattern) {

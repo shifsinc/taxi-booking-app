@@ -5,18 +5,11 @@ import com.shriram.microservices.model.location.Location;
 import com.shriram.microservices.model.taxi.Taxi;
 import com.shriram.microservices.model.trip.Trip;
 import com.shriram.microservices.service.BillingService;
-import com.shriram.microservices.service.TaxiService;
 import com.shriram.microservices.service.TripService;
-import com.shriram.microservices.util.DateTimeUtil;
 import org.apache.log4j.Logger;
-import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-
-import java.util.Collections;
-import java.util.List;
-import java.util.Properties;
 
 @Service
 @Qualifier(value = "tripService")

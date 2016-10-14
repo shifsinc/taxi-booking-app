@@ -1,8 +1,6 @@
 package com.shriram.microservices.service;
 
 import com.shriram.microservices.model.bill.Bill;
-import com.shriram.microservices.model.customer.Customer;
-import com.shriram.microservices.model.taxi.Taxi;
 import com.shriram.microservices.model.trip.Trip;
 
 public interface BillingService {
