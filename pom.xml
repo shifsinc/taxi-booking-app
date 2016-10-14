@@ -217,26 +217,7 @@
 						<failOnMissingWebXml>false</failOnMissingWebXml>
 					</configuration>
 				</plugin>
-				<plugin>
-					<groupId>co.escapeideas.maven</groupId>
-					<artifactId>ansible-maven-plugin</artifactId>
-					<version>1.2.0</version>
-					<configuration>
-						<inventory>${basedir}/src/main/ansible/profiles/${profile}/hosts</inventory>
-						<playbook>${basedir}/src/main/ansible/deploy.yml</playbook>
-						<extraVars>
-							<docker.image.prefix>dockerImagePrefix=${docker.image.prefix}</docker.image.prefix>
-							<project.artifactId>projectArtifactId=${project.artifactId}</project.artifactId>
-							<project.version>projectVersion=${project.version}</project.version>
-							<build-number>buildNumber=${build-number}</build-number>
-							<profile>profile=${profile}</profile>
-							<username>username=${username}</username>
-							<password>password=${password}</password>
-							<dbhostip>dbhostip=${dbhostip}</dbhostip>
-						</extraVars>
-					</configuration>
-				</plugin>
-			</plugins>
+				</plugins>
 		</pluginManagement>
 	</build>
 </project>
