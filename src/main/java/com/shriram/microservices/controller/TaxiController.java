@@ -98,11 +98,8 @@ public class TaxiController {
         Taxi retrievedTaxi = taxiService.searchTaxi(location, Boolean.getBoolean(isPink));
         Customer retrievedCustomer = taxiService.bookTaxi(retrievedTaxi, new Customer(customerID));
 
-        //create value object to sent in the response
-        TaxiValueObject taxi = new TaxiValueObject(retrievedTaxi);
-
         responseContent.put("message", "booked");
-        responseContent.put("taxi", retrievedCustomer.taxi());
+        responseContent.put("taxi", new TaxiValueObject(retrievedCustomer.taxi()));
         return responseContent;
     }
 

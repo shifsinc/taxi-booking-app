@@ -105,7 +105,11 @@ public class TripController {
             return ResponseUtil.badRequest(response, "missing latitude/longitude");
         }
 
-        Trip retrievedTrip = tripService.endTrip(new Trip(id));
+        Trip trip = new Trip(id);
+        trip.endLocation(new Location(Double.parseDouble(latitude), Double.parseDouble(longitude)));
+
+        Trip retrievedTrip = tripService.endTrip(trip);
+        logger.debug("Retrieved Trip" + retrievedTrip);
 
         return new TripValueObject(retrievedTrip);
     }

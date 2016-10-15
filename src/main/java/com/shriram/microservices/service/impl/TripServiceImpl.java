@@ -39,7 +39,11 @@ public class TripServiceImpl implements TripService {
         taxi.location(location);
         taxi.inTransit(true);
 
-        trip.customer(new Customer("1"));
+        Customer customer = new Customer("1");
+        customer.location(location);
+
+        trip.customer(customer);
+        customer.taxi(taxi);
         trip.taxi(taxi);
         trip.startLocation(location);
         trip.startTime("10/13/2016 19:00:00");

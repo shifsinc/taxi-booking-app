@@ -1,6 +1,7 @@
 package com.shriram.microservices.service;
 
 import com.shriram.microservices.config.MicroservicesServletTest;
+import com.shriram.microservices.model.bill.Bill;
 import com.shriram.microservices.model.customer.Customer;
 import com.shriram.microservices.model.location.Location;
 import com.shriram.microservices.model.taxi.Taxi;
@@ -12,11 +13,15 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
+
+import static org.mockito.Mockito.when;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
@@ -26,6 +31,9 @@ public class TripServiceTest extends TestCase {
     @InjectMocks
     @Autowired
     private TripService tripService;
+
+    @Mock
+    private BillingService billingService;
 
     private Taxi taxi;
     private Location location;
@@ -66,6 +74,7 @@ public class TripServiceTest extends TestCase {
 
     @Test
     public void endTripTest() {
+        when(billingService.retrieveBill(Mockito.any(Trip.class))).thenReturn(new Bill(25, 25));
         assertEquals(tripService.endTrip(endTrip).customer().id(), "1");
     }
 
