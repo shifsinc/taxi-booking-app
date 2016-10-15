@@ -74,9 +74,9 @@ public class TripController {
         }
 
 
-        Customer customer = tripValueObject.getCustomer().getCustomerObject();
-        Taxi taxi = tripValueObject.getTaxi().getTaxiObject();
-        Location startLocation = tripValueObject.getStartLocation().getLocationObject();
+        Customer customer = tripValueObject.getCustomer().createCustomerObject();
+        Taxi taxi = tripValueObject.getTaxi().createTaxiObject();
+        Location startLocation = tripValueObject.getStartLocation().createLocationObject();
 
         Trip retrievedTrip = tripService.startTrip(customer, taxi, startLocation, DateTimeUtil.getFormattedCurrentTime(domainProperties.getProperty(TIMESTAMP_FORMAT)));
 

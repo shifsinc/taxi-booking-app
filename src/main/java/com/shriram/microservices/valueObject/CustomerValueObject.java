@@ -58,9 +58,9 @@ public class CustomerValueObject {
         this.location = location;
     }
 
-    public Customer getCustomerObject() {
+    public Customer createCustomerObject() {
         Customer customer = new Customer(this.id);
-        customer.location(this.location.getLocationObject());
+        customer.location(this.location.createLocationObject());
         return customer;
     }
 

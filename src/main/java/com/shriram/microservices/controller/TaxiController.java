@@ -5,7 +5,6 @@ import com.shriram.microservices.model.location.Location;
 import com.shriram.microservices.model.taxi.Taxi;
 import com.shriram.microservices.service.TaxiService;
 import com.shriram.microservices.util.ResponseUtil;
-import com.shriram.microservices.valueObject.LocationValueObject;
 import com.shriram.microservices.valueObject.TaxiValueObject;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
@@ -64,8 +63,7 @@ public class TaxiController {
         List<TaxiValueObject> taxis = new ArrayList<>();
 
         for (Taxi taxi : retrieveTaxis) {
-            LocationValueObject locationValueObject = new LocationValueObject(taxi.location());
-            TaxiValueObject taxiValueObject = new TaxiValueObject(taxi.id(), locationValueObject);
+            TaxiValueObject taxiValueObject = new TaxiValueObject(taxi);
             taxis.add(taxiValueObject);
         }
 
@@ -101,8 +99,7 @@ public class TaxiController {
         Customer retrievedCustomer = taxiService.bookTaxi(retrievedTaxi, new Customer(customerID));
 
         //create value object to sent in the response
-        LocationValueObject locationValueObject = new LocationValueObject(location);
-        TaxiValueObject taxi = new TaxiValueObject(retrievedTaxi.id(), locationValueObject);
+        TaxiValueObject taxi = new TaxiValueObject(retrievedTaxi);
 
         responseContent.put("message", "booked");
         responseContent.put("taxi", retrievedCustomer.taxi());
