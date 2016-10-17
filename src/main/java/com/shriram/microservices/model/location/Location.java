@@ -6,23 +6,6 @@ package com.shriram.microservices.model.location;
  */
 public class Location {
 
-    private double latitude;
-    private double longitude;
-
-    public Location(double latitude, double longitude) {
-        this.latitude = latitude;
-        this.longitude = longitude;
-    }
-
-    //no setters as change in latitude or longitude would result in a new location
-    public double latitude() {
-        return latitude;
-    }
-
-    public double longitude() {
-        return longitude;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -46,10 +29,26 @@ public class Location {
         return result;
     }
 
-    public double distanceTo(Location location) {
+    private double latitude;
+    private double longitude;
 
-        //TODO - Implement Subtraction of lot/long
-        return 25;
+    public Location(double latitude, double longitude) {
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
+
+    //no setters as change in latitude or longitude would result in a new location
+    public double latitude() {
+        return latitude;
+    }
+
+    public double longitude() {
+        return longitude;
+    }
+
+    public double distanceTo(Location location) {
+        double distance = Math.sqrt(Math.pow(this.longitude - location.longitude, 2) + Math.pow(this.longitude - location.longitude, 2));
+        return distance;
     }
 
 }
