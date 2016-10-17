@@ -29,20 +29,6 @@ public class MicroservicesServlet extends WebMvcConfigurerAdapter {
         return bean;
     }
 
-    @Bean(name = "secretProperties")
-    public PropertiesFactoryBean secretPropertiesMapper() {
-        PropertiesFactoryBean bean = new PropertiesFactoryBean();
-        bean.setLocation(new FileSystemResource("/srv/microservices/secrets.properties"));
-        return bean;
-    }
-
-    @Bean(name = "sqlQueries")
-    public PropertiesFactoryBean sqlMapper() {
-        PropertiesFactoryBean bean = new PropertiesFactoryBean();
-        bean.setLocation(new ClassPathResource("sqlQueries.xml"));
-        return bean;
-    }
-
     @Bean(name = "viewResolver")
     public InternalResourceViewResolver getViewResolver() {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();

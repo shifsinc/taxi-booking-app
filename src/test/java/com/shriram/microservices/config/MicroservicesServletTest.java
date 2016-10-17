@@ -23,10 +23,6 @@ import java.util.List;
 @EnableWebMvc
 public class MicroservicesServletTest extends WebMvcConfigurerAdapter {
 
-    @Value("${profile}")
-    private String profileID;
-
-
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -35,13 +31,6 @@ public class MicroservicesServletTest extends WebMvcConfigurerAdapter {
         dataSource.setUsername("sa");
         dataSource.setPassword("");
         return dataSource;
-    }
-
-    @Bean(name = "envProperties")
-    public PropertiesFactoryBean envPropertiesMapper() {
-        PropertiesFactoryBean bean = new PropertiesFactoryBean();
-        bean.setLocation(new ClassPathResource("env.properties"));
-        return bean;
     }
 
     @Bean(name = "domainProperties")
